@@ -17,10 +17,10 @@
 #ifndef A_OUT_EX00_WRONGCAT_HPP_
 #define A_OUT_EX00_WRONGCAT_HPP_
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include <string>
 
-class WrongCat : public Animal {
+class WrongCat : public WrongAnimal {
  private:
   static const std::string kDefaultType;
  public:

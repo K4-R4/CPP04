@@ -19,12 +19,11 @@
 
 const std::string WrongAnimal::kDefaultType = "Wrong Animal";
 
-WrongAnimal::WrongAnimal() {
+WrongAnimal::WrongAnimal() : type_(kDefaultType) {
   std::cout << "Wrong Animal constructor called" << std::endl;
-  type_ = kDefaultType;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &obj) : Animal(obj) {
+WrongAnimal::WrongAnimal(const WrongAnimal &obj) : type_(obj.type_) {
   std::cout << "Wrong Animal copy constructor called" << std::endl;
 }
 
@@ -33,8 +32,16 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj) {
-  Animal::operator=(obj);
+  type_ = obj.type_;
   return *this;
+}
+
+const std::string &WrongAnimal::GetType() const {
+  return type_;
+}
+
+void WrongAnimal::SetType(const std::string &type) {
+  type_ = type;
 }
 
 void WrongAnimal::MakeSound() const {

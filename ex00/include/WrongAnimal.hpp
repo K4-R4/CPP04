@@ -20,7 +20,7 @@
 #include "Animal.hpp"
 #include <string>
 
-class WrongAnimal : public Animal {
+class WrongAnimal {
  private:
   static const std::string kDefaultType;
  public:
@@ -28,7 +28,11 @@ class WrongAnimal : public Animal {
   WrongAnimal(const WrongAnimal &obj);
   ~WrongAnimal();
   WrongAnimal &operator=(const WrongAnimal &obj);
+  const std::string &GetType() const;
+  void SetType(const std::string &type);
   void MakeSound() const;
+ protected:
+  std::string type_;
 };
 
 #endif //A_OUT_EX00_WRONGANIMAL_HPP_

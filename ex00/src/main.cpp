@@ -34,16 +34,22 @@ int main() {
   }
   {
 	std::cout << "==========================TEST 2==========================" << std::endl;
-	const Animal *animals[] = {
+	const WrongAnimal *animals[] = {
 		new WrongAnimal(),
-		new Dog(),
 		new WrongCat()
 	};
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 2; ++i) {
 	  std::cout << "Type: " << animals[i]->GetType() << std::endl;
 	  animals[i]->MakeSound();
 	  delete animals[i];
 	}
+	std::cout << "--------------------------DERIVED--------------------------" << std::endl;
+	WrongCat *cat1 = new WrongCat;
+	std::cout << "Type: " << cat1->GetType() << std::endl;
+	cat1->MakeSound();
+	WrongAnimal cat2;
+	std::cout << "Type: " << cat2.GetType() << std::endl;
+	cat2.MakeSound();
   }
   {
 	std::cout << std::endl;
