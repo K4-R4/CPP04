@@ -24,7 +24,7 @@ WrongCat::WrongCat() : WrongAnimal() {
   type_ = kDefaultType;
 }
 
-WrongCat::WrongCat(const WrongCat &obj) : WrongAnimal() {
+WrongCat::WrongCat(const WrongCat &obj) : WrongAnimal(obj) {
   std::cout << "Wrong Cat copy constructor called" << std::endl;
 }
 

@@ -20,8 +20,6 @@
 #include <string>
 
 class Animal {
- private:
-  static const std::string kDefaultType;
  public:
   Animal();
   Animal(const Animal &obj);
@@ -30,6 +28,8 @@ class Animal {
   const std::string &GetType() const;
   void SetType(const std::string &type);
   virtual void MakeSound() const;
+ private:
+  static const std::string kDefaultType;
  protected:
   std::string type_;
 };

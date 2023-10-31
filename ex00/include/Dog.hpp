@@ -21,14 +21,14 @@
 #include <string>
 
 class Dog : public Animal {
- private:
-  static const std::string kDefaultType;
  public:
   Dog();
   Dog(const Dog &obj);
   ~Dog();
   Dog &operator=(const Dog &obj);
   void MakeSound() const;
+ private:
+  static const std::string kDefaultType;
 };
 
 #endif //A_OUT_EX00_DOG_HPP_

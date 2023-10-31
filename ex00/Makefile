@@ -2,9 +2,9 @@ CXX      := c++
 CXXFLAGS := -g -MMD -MP -Wall -Wextra -Werror -std=c++98
 DFLAGS   := -fsanitize=address -fsanitize=bounds
 INCLUDE  := -I include
-NAME     := phonebook
+NAME     := a.out
 SRCDIR   := src
-SRCS     := src/Contact.cpp src/PhoneBook.cpp src/main.cpp
+SRCS     := src/Animal.cpp src/Cat.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Dog.cpp src/main.cpp
 OBJDIR   := obj
 OBJS     := $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.cpp=.o))
 DEPENDS  := $(OBJS:.o=.d)
