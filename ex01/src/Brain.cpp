@@ -30,14 +30,14 @@ Brain &Brain::operator=(const Brain &obj) {
 
 const std::string &Brain::GetIdea(int idx) const {
   if (idx < 0 || idx >= kMaxIdeas) {
-	throw std::out_of_range("Index out of range");
+	throw std::out_of_range("Brain attribute index out of range");
   }
   return ideas_[idx];
 }
 
 void Brain::SetIdea(int idx, const std::string &idea) {
   if (idx < 0 || idx >= kMaxIdeas) {
-	throw std::out_of_range("Index out of range");
+	throw std::out_of_range("Brain attribute index out of range");
   }
   ideas_[idx] = idea;
 }
