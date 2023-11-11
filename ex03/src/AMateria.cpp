@@ -15,6 +15,7 @@
 //
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 const std::string AMateria::kDefaultType = "amateria";

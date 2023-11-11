@@ -4,7 +4,7 @@ DFLAGS   := -fsanitize=address -fsanitize=bounds
 INCLUDE  := -I include
 NAME     := a.out
 SRCDIR   := src
-SRCS     := src/Animal.cpp src/Cat.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Brain.cpp src/Dog.cpp src/main.cpp
+SRCS     := src/AMateria.cpp src/ICharacter.cpp src/IMateriaSource.cpp src/Character.cpp src/MateriaSource.cpp src/Cure.cpp src/Ice.cpp src/main.cpp
 OBJDIR   := obj
 OBJS     := $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.cpp=.o))
 DEPENDS  := $(OBJS:.o=.d)

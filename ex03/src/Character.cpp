@@ -2,6 +2,7 @@
 // Created by k.t. on 2023/11/01.
 //
 
+#include "AMateria.hpp"
 #include "Character.hpp"
 #include <iostream>
 #include <string>

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-const std::string kDefaultType = "ice";
+const std::string Ice::kDefaultType = "ice";
 
 Ice::Ice() : AMateria(kDefaultType) {
   std::cout << "Ice constructor called" << std::endl;
@@ -21,6 +21,7 @@ Ice::~Ice() {
 }
 
 Ice &Ice::operator=(const Ice &obj) {
+  type_ = obj.type_;
   return *this;
 }
 
@@ -29,5 +30,5 @@ AMateria *Ice::clone() const {
 }
 
 void Ice::use(ICharacter &target) {
-  std::cout << "* heals " << target.GetName() << "’s wounds *" << std::endl;
+  std::cout << "* shoots an ice bolt at " << target.GetName() << " *" << std::endl;
 }

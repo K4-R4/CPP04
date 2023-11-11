@@ -26,8 +26,12 @@ class MateriaSource : public IMateriaSource {
   MateriaSource(const MateriaSource &obj);
   ~MateriaSource();
   MateriaSource &operator=(const MateriaSource &obj);
-  void learnMateria(AMateria *materia) = 0;
-  AMateria *createMateria(const std::string &type) = 0;
+  void learnMateria(AMateria *materia);
+  AMateria *createMateria(const std::string &type);
+ private:
+  const static int kMaxMaterias = 4;
+  AMateria *materias_[kMaxMaterias];
+  int materias_count;
 };
 
 #endif //A_OUT_EX03_MATERIASOURCE_HPP_

@@ -21,6 +21,7 @@ Cure::~Cure() {
 }
 
 Cure &Cure::operator=(const Cure &obj) {
+  type_ = obj.type_;
   return *this;
 }
 

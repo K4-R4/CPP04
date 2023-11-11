@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:53:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/01 14:53:42 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/11 15:19:20 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #ifndef A_OUT_EX03_AMATERIA_HPP_
 #define A_OUT_EX03_AMATERIA_HPP_
 
-#include "ICharacter.hpp"
 #include <string>
+
+class ICharacter;
 
 class AMateria {
  public:

@@ -5,7 +5,6 @@
 #ifndef A_OUT_EX03_CHARACTER_HPP_
 #define A_OUT_EX03_CHARACTER_HPP_
 
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include <string>
 
