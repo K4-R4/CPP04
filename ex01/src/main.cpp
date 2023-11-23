@@ -112,11 +112,11 @@ int main() {
 	  dog3 = *dog2;
 	  try {
 		std::cout << "Dog " << dog1->GetBrain()->GetIdea(0) << std::endl;
-		std::cout << "Dog " << dog2->GetBrain()->GetIdea(0) << std::endl;
-		std::cout << "Dog " << dog3.GetBrain()->GetIdea(0) << std::endl;
+		std::cout << "Dog " << dog2->GetBrain()->GetIdea(1) << std::endl;
+		std::cout << "Dog " << dog3.GetBrain()->GetIdea(2) << std::endl;
+		std::cout << "Dog " << dog3.GetBrain()->GetIdea(-1) << std::endl;
 	  } catch (std::out_of_range &e) {
 		std::cerr << "Index out of range" << std::endl;
-		exit(1);
 	  }
 	  delete dog1;
 	  delete dog2;
@@ -130,11 +130,11 @@ int main() {
 	  cat3 = *cat2;
 	  try {
 		std::cout << "Cat " << cat1->GetBrain()->GetIdea(0) << std::endl;
-		std::cout << "Cat " << cat2->GetBrain()->GetIdea(0) << std::endl;
-		std::cout << "Cat " << cat3.GetBrain()->GetIdea(0) << std::endl;
+		std::cout << "Cat " << cat2->GetBrain()->GetIdea(1) << std::endl;
+		std::cout << "Cat " << cat3.GetBrain()->GetIdea(2) << std::endl;
+		std::cout << "Cat " << cat3.GetBrain()->GetIdea(-1) << std::endl;
 	  } catch (std::out_of_range &e) {
 		std::cerr << "Index out of range" << std::endl;
-		exit(1);
 	  }
 	  delete cat1;
 	  delete cat2;
