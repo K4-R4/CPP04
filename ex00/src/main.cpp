@@ -6,7 +6,7 @@
 /*   By: kura <kura@student.1337.ma>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:01:16 by kura              #+#    #+#             */
-/*   Updated: 2023/10/29 17:16:11 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:50:22 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ int main() {
 	  delete animals[i];
 	}
 	std::cout << "--------------------------DERIVED--------------------------" << std::endl;
-	WrongCat *cat1 = new WrongCat;
-	std::cout << "Type: " << cat1->GetType() << std::endl;
-	cat1->MakeSound();
-	WrongAnimal cat2;
-	std::cout << "Type: " << cat2.GetType() << std::endl;
-	cat2.MakeSound();
+	WrongCat *cat = new WrongCat;
+	std::cout << "Type: " << cat->GetType() << std::endl;
+	cat->MakeSound();
+	delete cat;
   }
   {
 	std::cout << std::endl;
