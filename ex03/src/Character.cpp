@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:25:53 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 13:13:27 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:29:23 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ Character::Character(const std::string &name) : name_(name) {
 Character::Character(const Character &obj) : name_(obj.name_) {
   std::cout << "Character copy constructor called" << std::endl;
   for (int i = 0; i < kMaxSlots; ++i) {
-	inventory_[i] = obj.inventory_[i]->clone();
+	if (is_equipped_[i]) {
+	  inventory_[i] = obj.inventory_[i]->clone();
+	} else {
+	  inventory_[i] = NULL;
+	}
 	is_equipped_[i] = obj.is_equipped_[i];
   }
 }
@@ -50,9 +54,11 @@ Character &Character::operator=(const Character &obj) {
   }
   name_ = obj.name_;
   for (int i = 0; i < kMaxSlots; ++i) {
-	AMateria *temp_inventory = obj.inventory_[i]->clone();
-	bool temp_is_equipped = obj.is_equipped_[i];
+	AMateria *temp_inventory = NULL;
+	bool temp_is_equipped = false;
 	if (is_equipped_[i]) {
+	  temp_inventory = obj.inventory_[i]->clone();
+	  temp_is_equipped = obj.is_equipped_[i];
 	  delete inventory_[i];
 	  is_equipped_[i] = false;
 	}

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:56:18 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 12:15:37 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:41:02 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void MateriaSource::learnMateria(AMateria *materia) {
 	return;
   }
   if (materias_count >= kMaxMaterias) {
+	delete materia;
 	return;
   }
   materias_[materias_count] = materia;
@@ -67,7 +68,7 @@ void MateriaSource::learnMateria(AMateria *materia) {
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
   for (int i = 0; i < kMaxMaterias; ++i) {
-	if (materias_[i]->GetType() == type) {
+	if (materias_[i] && materias_[i]->GetType() == type) {
 	  return materias_[i]->clone();
 	}
   }
