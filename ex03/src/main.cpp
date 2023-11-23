@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:52:34 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 13:42:04 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:33:45 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
-#include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 #include <iostream>
@@ -31,11 +30,12 @@ int main() {
 
 	ICharacter *me = new Character("me");
 
-	AMateria *tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	AMateria *temp[] = {
+		src->createMateria("ice"),
+		src->createMateria("cure")
+	};
+	me->equip(temp[0]);
+	me->equip(temp[1]);
 
 	ICharacter *bob = new Character("bob");
 
@@ -44,6 +44,9 @@ int main() {
 
 	delete bob;
 	delete me;
+	for (int i = 0; i < 2; ++i) {
+	  delete temp[i];
+	}
 	delete src;
   }
   {
@@ -104,6 +107,105 @@ int main() {
   }
   {
 	std::cout << "==========================Character==========================" << std::endl;
+	{
+	  std::cout << "--------------------------Basic Functions--------------------------" << std::endl;
+	  Character *bob = new Character("Bob");
+	  std::cout << "Character name is " << bob->GetName() << std::endl;
+	  delete bob;
+	}
+	{
+	  std::cout << "--------------------------Equip more than 4 materias--------------------------" << std::endl;
+	  Character *bob = new Character("Bob");
+	  IMateriaSource *src = new MateriaSource();
+	  src->learnMateria(new Cure());
+
+	  AMateria *temp[5];
+	  for (int i = 0; i < 5; ++i) {
+		temp[i] = src->createMateria("cure");
+		bob->equip(temp[i]);
+	  }
+	  delete bob;
+	  for (int i = 0; i < 5; ++i) {
+		delete temp[i];
+	  }
+	  delete src;
+	}
+	{
+	  std::cout << "--------------------------Unequip materias--------------------------" << std::endl;
+	  Character *bob = new Character("Bob");
+	  IMateriaSource *src = new MateriaSource();
+	  src->learnMateria(new Cure());
+
+	  AMateria *temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  for (int i = 0; i < 4; ++i) {
+		bob->unequip(i);
+	  }
+	  delete temp;
+	  delete bob;
+	  delete src;
+	}
+	{
+	  std::cout << "--------------------------Use materias--------------------------" << std::endl;
+	  IMateriaSource *src = new MateriaSource();
+	  src->learnMateria(new Ice());
+	  src->learnMateria(new Cure());
+
+	  ICharacter *me = new Character("me");
+
+	  AMateria *temp[] = {
+		  src->createMateria("ice"),
+		  src->createMateria("cure")
+	  };
+	  me->equip(temp[0]);
+	  me->equip(temp[1]);
+
+	  ICharacter *bob = new Character("bob");
+
+	  try {
+		me->use(0, *bob);
+		me->use(1, *bob);
+		me->use(2, *bob);
+		me->use(5, *bob);
+	  } catch (std::out_of_range &e) {
+		std::cout << "Character slot index out of range" << std::endl;
+	  }
+
+	  delete bob;
+	  delete me;
+	  for (int i = 0; i < 2; ++i) {
+		delete temp[i];
+	  }
+	  delete src;
+	}
+  }
+  {
+	std::cout << "==========================Ice==========================" << std::endl;
+	AMateria *ice = new Ice();
+	AMateria *cloned_ice = ice->clone();
+	ICharacter *bob = new Character("Bob");
+
+	std::cout << ice->GetType() << std::endl;
+	ice->use(*bob);
+	cloned_ice->use(*bob);
+
+	delete ice;
+	delete cloned_ice;
+	delete bob;
+  }
+  {
+	std::cout << "==========================Cure==========================" << std::endl;
+	AMateria *cure = new Cure();
+	AMateria *cloned_cure = cure->clone();
+	ICharacter *bob = new Character("Bob");
+
+	std::cout << cure->GetType() << std::endl;
+	cure->use(*bob);
+	cloned_cure->use(*bob);
+
+	delete cure;
+	delete cloned_cure;
+	delete bob;
   }
   return 0;
 }

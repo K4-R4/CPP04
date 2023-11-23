@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:25:53 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 13:29:23 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:57:36 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ Character::Character(const Character &obj) : name_(obj.name_) {
 
 Character::~Character() {
   std::cout << "Character destructor called" << std::endl;
-  for (int i = 0; i < kMaxSlots; ++i) {
-	if (is_equipped_[i]) {
-	  delete inventory_[i];
-	}
-  }
 }
 
 Character &Character::operator=(const Character &obj) {
@@ -98,6 +93,7 @@ void Character::use(int idx, ICharacter &target) {
   }
   if (!is_equipped_[idx]) {
 	std::cout << "Character " << GetName() << " does not have any item in slot " << idx << "!" << std::endl;
+	return;
   }
   inventory_[idx]->use(target);
 }
