@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 15:29:05 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/11/23 12:34:49 by tkuramot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //
 // Created by k.t. on 2023/11/01.
 //
@@ -6,9 +18,7 @@
 #include <iostream>
 #include <string>
 
-const std::string Cure::kDefaultType = "cure";
-
-Cure::Cure() : AMateria(kDefaultType) {
+Cure::Cure() : AMateria("cure") {
   std::cout << "Cure constructor called" << std::endl;
 }
 
@@ -21,7 +31,7 @@ Cure::~Cure() {
 }
 
 Cure &Cure::operator=(const Cure &obj) {
-  type_ = obj.type_;
+  (void)obj;
   return *this;
 }
 

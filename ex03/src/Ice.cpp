@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 15:28:59 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/11/23 12:35:01 by tkuramot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //
 // Created by k.t. on 2023/11/01.
 //
@@ -6,9 +18,7 @@
 #include <iostream>
 #include <string>
 
-const std::string Ice::kDefaultType = "ice";
-
-Ice::Ice() : AMateria(kDefaultType) {
+Ice::Ice() : AMateria("ice") {
   std::cout << "Ice constructor called" << std::endl;
 }
 
@@ -21,7 +31,7 @@ Ice::~Ice() {
 }
 
 Ice &Ice::operator=(const Ice &obj) {
-  type_ = obj.type_;
+  (void)obj;
   return *this;
 }
 

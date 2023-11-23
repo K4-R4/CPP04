@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:53:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/01 14:53:29 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:34:28 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include <iostream>
-
-const std::string AMateria::kDefaultType = "amateria";
 
 AMateria::AMateria(const std::string &type) : type_(type) {
   std::cout << "AMateria constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:52:34 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/11 13:53:53 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:13:03 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ int main() {
   delete bob;
   delete me;
   delete src;
-  system("leaks -q a.out");
   return 0;
 }

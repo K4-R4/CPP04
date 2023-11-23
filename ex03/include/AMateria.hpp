@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:53:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/11 15:19:20 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:33:08 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class AMateria {
   virtual void use(ICharacter &target);
  protected:
   std::string type_;
-  static const std::string kDefaultType;
 };
 
 #endif //A_OUT_EX03_AMATERIA_HPP_

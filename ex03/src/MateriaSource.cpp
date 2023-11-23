@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:56:18 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/11 13:46:20 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:15:37 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ MateriaSource::MateriaSource(const MateriaSource &obj) {
 
 MateriaSource::~MateriaSource() {
   std::cout << "MateriaSource destructor called" << std::endl;
+  for (int i = 0; i < kMaxMaterias; ++i) {
+	if (materias_[i]) {
+	  delete materias_[i];
+	}
+  }
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &obj) {

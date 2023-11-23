@@ -17,8 +17,6 @@ class Ice : public AMateria {
   Ice &operator=(const Ice &obj);
   AMateria *clone() const;
   void use(ICharacter &target);
- private:
-  static const std::string kDefaultType;
 };
 
 #endif //A_OUT_EX03_ICE_HPP_
