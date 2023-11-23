@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:56:18 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 13:41:02 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:57:31 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ MateriaSource::MateriaSource() : materias_count(0) {
 
 MateriaSource::MateriaSource(const MateriaSource &obj) {
   std::cout << "MateriaSource copy constructor called" << std::endl;
-  for (int i = 0; i < kMaxMaterias; ++i) {
+  for (int i = 0; i < obj.materias_count; ++i) {
 	if (obj.materias_[i]) {
 	  materias_[i] = obj.materias_[i]->clone();
+	  ++materias_count;
 	}
   }
 }
 
 MateriaSource::~MateriaSource() {
   std::cout << "MateriaSource destructor called" << std::endl;
-  for (int i = 0; i < kMaxMaterias; ++i) {
-	if (materias_[i]) {
+  for (int i = 0; i < materias_count; ++i) {
 	  delete materias_[i];
-	}
   }
 }
 
@@ -46,10 +45,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj) {
   if (this == &obj) {
 	return *this;
   }
-  for (int i = 0; i < kMaxMaterias; ++i) {
-	if (obj.materias_[i]) {
+  for (int i = 0; i < obj.materias_count; ++i) {
 	  materias_[i] = obj.materias_[i]->clone();
-	}
   }
   return *this;
 }
