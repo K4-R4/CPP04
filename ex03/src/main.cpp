@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:52:34 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 21:33:45 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:33:14 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ int main() {
 
 	ICharacter *me = new Character("me");
 
-	AMateria *temp[] = {
-		src->createMateria("ice"),
-		src->createMateria("cure")
-	};
-	me->equip(temp[0]);
-	me->equip(temp[1]);
+	AMateria *temp = src->createMateria("ice");
+	me->equip(temp);
+	temp = src->createMateria("cure");
+	me->equip(temp);
 
 	ICharacter *bob = new Character("bob");
 
@@ -44,9 +42,6 @@ int main() {
 
 	delete bob;
 	delete me;
-	for (int i = 0; i < 2; ++i) {
-	  delete temp[i];
-	}
 	delete src;
   }
   {
@@ -119,15 +114,18 @@ int main() {
 	  IMateriaSource *src = new MateriaSource();
 	  src->learnMateria(new Cure());
 
-	  AMateria *temp[5];
-	  for (int i = 0; i < 5; ++i) {
-		temp[i] = src->createMateria("cure");
-		bob->equip(temp[i]);
-	  }
+	  AMateria *temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  temp = src->createMateria("cure");
+	  bob->equip(temp);
+	  delete temp;
 	  delete bob;
-	  for (int i = 0; i < 5; ++i) {
-		delete temp[i];
-	  }
 	  delete src;
 	}
 	{
@@ -153,12 +151,10 @@ int main() {
 
 	  ICharacter *me = new Character("me");
 
-	  AMateria *temp[] = {
-		  src->createMateria("ice"),
-		  src->createMateria("cure")
-	  };
-	  me->equip(temp[0]);
-	  me->equip(temp[1]);
+	  AMateria *temp = src->createMateria("ice");
+	  me->equip(temp);
+	  temp = src->createMateria("cure");
+	  me->equip(temp);
 
 	  ICharacter *bob = new Character("bob");
 
@@ -173,9 +169,6 @@ int main() {
 
 	  delete bob;
 	  delete me;
-	  for (int i = 0; i < 2; ++i) {
-		delete temp[i];
-	  }
 	  delete src;
 	}
   }

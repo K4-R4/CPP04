@@ -41,6 +41,11 @@ Character::Character(const Character &obj) : name_(obj.name_) {
 
 Character::~Character() {
   std::cout << "Character destructor called" << std::endl;
+  for (int i = 0; i < kMaxSlots; ++i) {
+	if (is_equipped_[i]) {
+	  delete inventory_[i];
+	}
+  }
 }
 
 Character &Character::operator=(const Character &obj) {
