@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:56:18 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/23 21:57:31 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:51:16 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ void MateriaSource::learnMateria(AMateria *materia) {
 	return;
   }
   if (materias_count >= kMaxMaterias) {
+	std::cout << "No more slots to learn materias!" << std::endl;
 	delete materia;
 	return;
   }
+  std::cout << "MateriaSource learned " << materia->GetType() << std::endl;
   materias_[materias_count] = materia;
   ++materias_count;
 }
@@ -66,8 +68,10 @@ void MateriaSource::learnMateria(AMateria *materia) {
 AMateria *MateriaSource::createMateria(const std::string &type) {
   for (int i = 0; i < kMaxMaterias; ++i) {
 	if (materias_[i] && materias_[i]->GetType() == type) {
+	  std::cout << "Creating learned materia, " << materias_[i]->GetType() << std::endl;
 	  return materias_[i]->clone();
 	}
   }
+  std::cout << type << " not found in leaned materias" << std::endl;
   return NULL;
 }
